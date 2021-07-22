@@ -16,13 +16,12 @@ server.listen(port, ()=>{
     console.log("server started at http://localhost:"+port);
 })
 
-
-// var user = [{email : "",name : "", id : "", cardNumber: "", timestamp:"",status:""}]
-// var userdata
-
 app.get("/", (req, res) => {
-    res.send('Hello World!')
-  });
+  res.status(200).json({
+    Message: "Connected",
+    success : true,
+                
+});
   
 
 app.post('/payment', function  (req, res) {
