@@ -17,11 +17,8 @@ server.listen(port, ()=>{
 })
 
 app.get("/", (req, res) => {
-  res.status(200).json({
-    Message: "Connected",
-    success : true,
-                
-});
+    res.send('Hello World!')
+  });
   
 
 app.post('/payment', function  (req, res) {
