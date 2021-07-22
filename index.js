@@ -2,6 +2,7 @@ const http = require('http');
 const port = process.env.PORT || 3000
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const server = http.createServer(app);
 var mysql = require('mysql');
 
@@ -9,6 +10,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const uniqid = require('uniqid');
+app.use(cors());
 
 server.listen(port, ()=>{
     console.log("server started at http://localhost:"+port);
