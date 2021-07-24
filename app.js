@@ -53,10 +53,10 @@ catch(err){
         console.log('in insert')
         var todayDate = Date.now()
         var connection = mysql.createConnection({
-            host     : "webdb.cim0emcvx2mb.us-east-1.rds.amazonaws.com",
-            user     : "web",
-            password : "webrobinder",
-            port     : 3306
+          host: "db-admin.cbsrzgbgkhst.us-east-1.rds.amazonaws.com",
+          user: "admin",
+          password: "admin1234",
+          database: "db_admin"
           });
           
           connection.connect(function(err) {
@@ -71,7 +71,7 @@ catch(err){
             console.log(`price is ${userdata.finalOrderPrice}`)
             console.log(`card is ${userdata.cardNumber}`)
             if(userdata.type != 'Cash on Delivery' && userdata.type != 'Redeem Points option'){
-                var query = `INSERT INTO webEmployee.client(idclient,name,type,card,timestamp,status,price) VALUES ('${userdata.id}', '${userdata.cardHolderName}','CardPayment', ${userdata.cardNumber}, ${todayDate}, 'SUCCESS',${userdata.finalOrderPrice})`;
+                var query = `INSERT INTO db_admin.client(idclient,name,type,card,timestamp,status,price) VALUES ('${userdata.id}', '${userdata.cardHolderName}','CardPayment', ${userdata.cardNumber}, ${todayDate}, 'SUCCESS',${userdata.finalOrderPrice})`;
             console.log('in if')
             connection.query(query, function (err, result) {
                 if (err) throw err;
