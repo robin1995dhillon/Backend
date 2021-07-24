@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
   });
   
 
-app.post('https://backend-nodeapp.herokuapp.com/payment', function  (req, res) {
+app.post('/payment', function  (req, res) {
     console.log('hello')
     
     const userdata = req.body;
