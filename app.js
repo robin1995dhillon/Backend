@@ -82,7 +82,7 @@ catch(err){
             else{
                 console.log('in else')
             
-                var sqlquery = `INSERT INTO webEmployee.client(idclient,type,timestamp,status,price) VALUES ('${userdata.id}', '${userdata.type}', ${todayDate}, 'SUCCESS',${userdata.finalOrderPrice})`;
+                var sqlquery = `INSERT INTO db_admin.client(idclient,type,timestamp,status,price) VALUES ('${userdata.id}', '${userdata.type}', ${todayDate}, 'SUCCESS',${userdata.finalOrderPrice})`;
             
             connection.query(sqlquery, function (err, result) {
                 if (err) throw err;
