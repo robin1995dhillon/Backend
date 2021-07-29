@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const uniqid = require('uniqid');
-app.use(cors());
+// app.use(cors());
 
 server.listen(port, () => {
   console.log("server started at http://localhost:" + port);
