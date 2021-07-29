@@ -33,13 +33,12 @@ app.post('/payment', function (req, res) {
     userdata.id = uniqid(); //generating a hexadecimal order ID
     // user.push(userdata)
     console.log(userdata)
-    const result = insertDb(userdata)
+    insertDb(userdata)
     // console.log('query time')
 
 
     res.status(200).json({
       Message: "User added",
-      id: result,
       success: true,
       data: userdata
     })
@@ -83,7 +82,6 @@ insertDb = (userdata) => {
     password: "admin1234",
     database: "db_admin"
   });
-  var id = null;
   connection.connect(function (err) {
     if (err) {
       console.error('Database connection failed: ' + err.stack);
@@ -99,7 +97,6 @@ insertDb = (userdata) => {
       connection.query(query, function (err, result) {
         if (err) throw err;
         console.log("client record inserted");
-        id = result;
       });
       connection.end
     }
@@ -111,13 +108,11 @@ insertDb = (userdata) => {
       connection.query(sqlquery, function (err, result) {
         if (err) throw err;
         console.log("client record inserted");
-        id = result;
       });
       connection.end
     }
 
   });
-  return id;
 }
 
 updateDeliveryStatus = (id, status) => {
