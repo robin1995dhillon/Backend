@@ -108,7 +108,7 @@ insertDb = (userdata) => {
     else {
       console.log('in else')
 
-      var sqlquery = `INSERT INTO webEmployee.client(idclient,type,timestamp,status,price) VALUES ('${userdata.id}', '${userdata.type}', ${todayDate}, 'SUCCESS',${userdata.finalOrderPrice})`;
+      var sqlquery = `INSERT INTO db_admin.client(idclient,type,timestamp,status,price) VALUES ('${userdata.id}', '${userdata.type}', ${todayDate}, 'SUCCESS',${userdata.finalOrderPrice})`;
 
       connection.query(sqlquery, function (err, result) {
         if (err) throw err;
@@ -137,7 +137,7 @@ updateDeliveryStatus = (id, status) => {
     }
 
     console.log('Connected to database.');
-    var query = `update client set delivery_status = '${status}' where idclient='${id}'`;
+    var query = `update db_admin.client set delivery_status = '${status}' where idclient='${id}'`;
     connection.query(query, function (err, result) {
       if (err) throw err;
       console.log("delivery status updated");
