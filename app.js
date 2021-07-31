@@ -124,7 +124,7 @@ updateDeliveryStatus = (id, status) => {
   console.log('in insert')
   var todayDate = Date.now()
   var connection = mysql.createConnection({
-     host: "35.188.62.128",
+    host: "35.188.62.128",
     user: "root",
     password: "admin1234",
     database: "db_admin"
